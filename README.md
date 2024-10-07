@@ -21,7 +21,7 @@ The app works for my current system: macOS 11.6.4 (20G417), other systems could 
 Can also start the app directly from the python file by running the code below, this requires using the terminal.
 Open the terminal app and copy paste the code below.
 
-##### For Windows
+#### For Windows
 change the working directory to the path where you unziped the app files
 ```sh
 cd your/path/to/repo/Pomodoro-App-main
@@ -42,7 +42,7 @@ launch the app from the python file
 ```sh
 python pomodoro.py
 ```
-##### For Mac
+#### For Mac
 change the working directory to the path where you unziped the app files
 ```sh
 cd your/path/to/repo/Pomodoro-App-main
