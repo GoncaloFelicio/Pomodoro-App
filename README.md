@@ -16,20 +16,56 @@ The app works for my current system: macOS 11.6.4 (20G417), other systems could 
 
 #### With Python (Mac or Windows)
 [Install python](https://www.python.org)
+
 - via python file:  
-Can also start the app directly from the python file (this requires using the terminal and having correct python and pip versions).
+Can also start the app directly from the python file by running the code below, this requires using the terminal.
+Open the terminal app and copy paste the code below.
+
+##### For Windows
+change the working directory to the path where you unziped the app files
 ```sh
-cd path/to/repo/Pomodoro-App-main # move to the directory with the app
-python3 -m venv venv # create a virtual environment for this app's libraries
-source venv/bin/activate # activate the venv just created
-pip install -r requirements.txt # install all the requirements
-python pomodoro.py # launch the app
+cd your/path/to/repo/Pomodoro-App-main
 ```
-Should work with the previous code, if there are permissions issue can try adding this to give executable permissions:
+create a virtual environment for the app's libraries
 ```sh
-...
-chmod +x pomodoro.py # give permisison
-python pomodoro.py # launch the app
+python -m venv venv 
+```
+activate the virtual environment just created
+```sh
+venv\Scripts\activate
+```
+install the required libraries
+```sh
+pip install -r requirements.txt
+```
+launch the app from the python file
+```sh
+python pomodoro.py
+```
+##### For Mac
+change the working directory to the path where you unziped the app files
+```sh
+cd your/path/to/repo/Pomodoro-App-main
+```
+create a virtual environment for the app's libraries
+```sh
+python3 -m venv venv 
+```
+activate the virtual environment just created
+```sh
+source venv/bin/activate # 
+```
+install the required libraries
+```sh
+pip install -r requirements.txt
+```
+launch the app from the python file
+```sh
+python pomodoro.py
+```
+Should work with the previous code, if there are permissions issue can try adding this to give executable permissions before launching the python file:
+```sh
+chmod +x pomodoro.py
 ```
 
 - via jupyter notebook:  
