@@ -52,7 +52,8 @@ After the Jupyter lab opens can open the file "Pomodoro App testing.ipynb" and r
 ---
 
 # To Do's 
-( somewhere, sometime in the distant future.. or by the devine grace of a gentle soul that contributes their pen ૮꒰ ˶• ༝ •˶꒱ა ♡ )
+( somewhere, sometime in the distant future.. or by the devine grace of a gentle soul that contributes their pen  
+૮꒰ ˶• ༝ •˶꒱ა ♡ )
 
 - Package the app to also work on windows,
 - Open app by clicking on the terminal executable inside /dist (opens much faster),
