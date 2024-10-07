@@ -1,3 +1,0 @@
-([('pomodoro',
-   '/Users/gongas/Documents/Gongas_stuff/Pomodoro_App/dist/pomodoro',
-   'EXECUTABLE')],)
