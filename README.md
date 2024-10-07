@@ -38,7 +38,7 @@ Open the terminal app and copy paste the code below.
 >```
 >install the required libraries
 >```sh
->pip install -r requirements.txt
+>pip install -r requirementsWin.txt
 >```
 >launch the app from the python file
 >```sh
