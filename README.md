@@ -100,6 +100,7 @@ After the Jupyter lab opens can open the file "Pomodoro App testing.ipynb" and r
 - Open app by clicking on the terminal executable inside /dist (opens much faster),
 - Auto adjust the background image to always match size of the window,
 - Load the custom fonts from path, and remove the step to install them in the How to use instructions,
+- Dinamically identify Windows or OS and adjust custom font sizes and colors for tkinter to match current Mac app,
 
 # Final Notes
 
