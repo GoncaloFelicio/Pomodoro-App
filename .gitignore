@@ -1,8 +1,13 @@
-# Ignore virtual environment folder
-pomodorovenv/
+# Virtual environment folder
+venv/
 
-# Ignore Jupyter checkpoints
+# distribution files
+build/
+*.egg-info/
+.eggs/
+
+# Jupyter checkpoints
 .ipynb_checkpoints/
 
-# Ignore macOS system files
+# macOS system files
 .DS_Store
