@@ -14,7 +14,7 @@ clone the repo or download the zip from the Github page (hint: green "Code" butt
 The app is already packaged for MacOs, this means after cloning (or unzip) the repo, can go to the folder "*/dist*" and double-click the pomodoro app icon 🍅.  
 The app works for my current system: macOS 11.6.4 (20G417), other systems could give an issue.
 
-#### With Python
+#### With Python (Mac or Windows)
 [Install python](https://www.python.org)
 - via python file:  
 Can also start the app directly from the python file (this requires using the terminal and having correct python and pip versions).
