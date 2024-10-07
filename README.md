@@ -19,7 +19,7 @@ The app works for my current system: macOS 11.6.4 (20G417), other systems could 
 - via python file:  
 Can also start the app directly from the python file (this requires using the terminal and having correct python and pip versions).
 ```sh
-cd path/to/repo/Pomodoro_App # move to the directory with the app
+cd path/to/repo/Pomodoro-App-main # move to the directory with the app
 python3 -m venv venv # create a virtual environment for this app's libraries
 source venv/bin/activate # activate the venv just created
 pip install -r requirements.txt # install all the requirements
