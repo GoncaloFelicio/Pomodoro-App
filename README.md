@@ -6,7 +6,9 @@ What's a pomodoro? --> https://en.wikipedia.org/wiki/Pomodoro_Technique
 
 
 ## How to Use
-clone the repo or download the zip from the Github page (hint: green "Code" button)
+clone the repo or download the zip from the Github page (hint: green "Code" button)  
+install the custom fonts in your system:  
+>Go to the folder "*/fonts*" in the repository, double click each font and install them
 
 #### With MacOs 
 
