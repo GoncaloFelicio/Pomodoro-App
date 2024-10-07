@@ -22,51 +22,51 @@ Can also start the app directly from the python file by running the code below, 
 Open the terminal app and copy paste the code below.
 
 #### For Windows
-change the working directory to the path where you unziped the app files
-```sh
-cd your/path/to/repo/Pomodoro-App-main
-```
-create a virtual environment for the app's libraries
-```sh
-python -m venv venv 
-```
-activate the virtual environment just created
-```sh
-venv\Scripts\activate
-```
-install the required libraries
-```sh
-pip install -r requirements.txt
-```
-launch the app from the python file
-```sh
-python pomodoro.py
-```
+>change the working directory to the path where you unziped the app files
+>```sh
+>cd your/path/to/repo/Pomodoro-App-main
+>```
+>create a virtual environment for the app's libraries
+>```sh
+>python -m venv venv 
+>```
+>activate the virtual environment just created
+>```sh
+>venv\Scripts\activate
+>```
+>install the required libraries
+>```sh
+>pip install -r requirements.txt
+>```
+>launch the app from the python file
+>```sh
+>python pomodoro.py
+>```
 #### For Mac
-change the working directory to the path where you unziped the app files
-```sh
-cd your/path/to/repo/Pomodoro-App-main
-```
-create a virtual environment for the app's libraries
-```sh
-python3 -m venv venv 
-```
-activate the virtual environment just created
-```sh
-source venv/bin/activate # 
-```
-install the required libraries
-```sh
-pip install -r requirements.txt
-```
-launch the app from the python file
-```sh
-python pomodoro.py
-```
-Should work with the previous code, if there are permissions issue can try adding this to give executable permissions before launching the python file:
-```sh
-chmod +x pomodoro.py
-```
+>change the working directory to the path where you unziped the app files
+>```sh
+>cd your/path/to/repo/Pomodoro-App-main
+>```
+>create a virtual environment for the app's libraries
+>```sh
+>python3 -m venv venv 
+>```
+>activate the virtual environment just created
+>```sh
+>source venv/bin/activate # 
+>```
+>install the required libraries
+>```sh
+>pip install -r requirements.txt
+>```
+>launch the app from the python file
+>```sh
+>python pomodoro.py
+>```
+>Should work with the previous code, if there are permissions issue can try adding this to give executable permissions before launching the python file:
+>```sh
+>chmod +x pomodoro.py
+>```
 
 - via jupyter notebook:  
 There is also a jupyter notebook in the repo used for development and testing. Can also launch the app by running the first 2 cells:
