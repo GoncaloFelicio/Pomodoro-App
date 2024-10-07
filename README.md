@@ -25,7 +25,7 @@ source venv/bin/activate # activate the venv just created
 pip install -r requirements.txt # install all the requirements
 python pomodoro.py # launch the app
 ```
-    Should work with the previous code, if there are permissions issue can try adding this to give executable permissions:
+Should work with the previous code, if there are permissions issue can try adding this to give executable permissions:
 ```sh
 ...
 chmod +x pomodoro.py # give permisison
@@ -42,7 +42,7 @@ pip install -r requirements.txt # install all the requirements
 python -m ipykernel install --user --name=venv --display-name "Pomodoro Venv" # add the venv to Jupyter as a kernel
 jupyter lab # open jupyter lab
 ```  
-    After the Jupyter lab opens can open the file "Pomodoro App testing.ipynb" and run the first cell with code by clicking on the cell and then Shift+Enter.
+After the Jupyter lab opens can open the file "Pomodoro App testing.ipynb" and run the first cell with code by clicking on the cell and then Shift+Enter.
 
 ### If everything works:
 - Enjoy!  (˵ •̀ ᴗ - ˵ ) ✧
