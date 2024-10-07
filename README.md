@@ -15,7 +15,7 @@ The app is already packaged for MacOs, this means after cloning (or unzip) the r
 The app works for my current system: macOS 11.6.4 (20G417), other systems could give an issue.
 
 #### With Python (Mac or Windows)
-[Install python](https://www.python.org)
+[Install python]([https://www.python.org](https://www.python.org/downloads/release/python-392/))
 
 - via python file:  
 Can also start the app directly from the python file by running the code below, this requires using the terminal.
@@ -53,11 +53,12 @@ Open the terminal app and copy paste the code below.
 >```
 >activate the virtual environment just created
 >```sh
->source venv/bin/activate # 
+>source venv/bin/activate
 >```
->install the required libraries
+>upgrade pip and install the required libraries (also installs jupyter in case you want to play around with it)
 >```sh
->pip install -r requirements.txt
+>python -m pip install --upgrade pip
+>pip install -r requirementsMac.txt
 >```
 >launch the app from the python file
 >```sh
@@ -69,15 +70,17 @@ Open the terminal app and copy paste the code below.
 >```
 
 - via jupyter notebook:  
-There is also a jupyter notebook in the repo used for development and testing. Can also launch the app by running the first 2 cells:
-```sh
-cd path/to/repo/Pomodoro_App # move to the directory with the app
-python3 -m venv venv # create a venv for this app libraries
-source venv/bin/activate # activate the venv just created
-pip install -r requirements.txt # install all the requirements
-python -m ipykernel install --user --name=venv --display-name "Pomodoro Venv" # add the venv to Jupyter as a kernel
-jupyter lab # open jupyter lab
-```  
+There is also a jupyter notebook in the repo used for development and testing. Can also launch the app by running the first code cell. The steps are the same as above but instead of launching the pomodoro.py file in the last step, launch jupyter instead:  
+
+#### For Mac
+>add the virtual environment to Jupyter kernel
+>```sh
+>python -m ipykernel install --user --name=venv --display-name "Pomodoro Venv" 
+>```
+>open jupyter lab
+>```sh
+>jupyter lab
+>```  
 After the Jupyter lab opens can open the file "Pomodoro App testing.ipynb" and run the first cell with code by clicking on the cell and then Shift+Enter.
 
 ### If everything works:
