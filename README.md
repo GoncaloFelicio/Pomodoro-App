@@ -17,7 +17,7 @@ The app is already packaged for MacOs, this means after cloning (or unzip) the r
 The app works for my current system: macOS 11.6.4 (20G417), other systems could give an issue.
 
 #### With Python (Mac or Windows)
-[Install python]([https://www.python.org](https://www.python.org/downloads/release/python-392/))
+[Install python 3.9.2](https://www.python.org/downloads/release/python-392/)
 
 - via python file:  
 Can also start the app directly from the python file by running the code below, this requires using the terminal.
