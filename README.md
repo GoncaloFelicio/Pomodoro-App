@@ -26,30 +26,9 @@ The app works for my current system, other systems could give an issue.
 [Install python 3.9.2](https://www.python.org/downloads/release/python-392/)
 
 - via python file:  
-Can also start the app directly from the python file by running the code below, this requires using the terminal.
+Can also start the app directly from the python file by running the code below, this requires using the terminal.  
 Open the terminal app and copy paste the code below.
 
-#### For Windows
->change the working directory to the path where you unziped the app files
->```sh
->cd your/path/to/repo/Pomodoro-App-main
->```
->create a virtual environment for the app's libraries
->```sh
->python -m venv venv 
->```
->activate the virtual environment just created
->```sh
->venv\Scripts\activate
->```
->install the required libraries
->```sh
->pip install -r requirementsWin.txt
->```
->launch the app from the python file
->```sh
->python pomodoro.py
->```
 #### For Mac
 >change the working directory to the path where you unziped the app files
 >```sh
@@ -77,8 +56,30 @@ Open the terminal app and copy paste the code below.
 >chmod +x pomodoro.py
 >```
 
+#### For Windows
+>change the working directory to the path where you unziped the app files
+>```sh
+>cd your/path/to/repo/Pomodoro-App-main
+>```
+>create a virtual environment for the app's libraries
+>```sh
+>python -m venv venv 
+>```
+>activate the virtual environment just created
+>```sh
+>venv\Scripts\activate
+>```
+>install the required libraries
+>```sh
+>pip install -r requirementsWin.txt
+>```
+>launch the app from the python file
+>```sh
+>python pomodoro.py
+>```
+
 - via jupyter notebook:  
-There is also a jupyter notebook in the repo used for development and testing. Can also launch the app by running the first code cell. The steps are the same as above but instead of launching the pomodoro.py file in the last step, launch jupyter instead:  
+There is also a jupyter notebook in the repo used for development and testing. The steps to follow are the same as above but, at the final step, instead of launching the pomodoro.py file, launch jupyter instead:  
 
 #### For Mac
 >add the virtual environment to Jupyter kernel
@@ -89,7 +90,7 @@ There is also a jupyter notebook in the repo used for development and testing. C
 >```sh
 >jupyter lab
 >```  
-After the Jupyter lab opens can open the file "Pomodoro App testing.ipynb" and run the first cell with code by clicking on the cell and then Shift+Enter.
+After the Jupyter lab opens, you can open the file "Pomodoro App testing.ipynb" and run the first cells with code by clicking on the cell and then Shift+Enter.
 
 ### If everything works:
 - Enjoy!  (˵ •̀ ᴗ - ˵ ) ✧
@@ -102,7 +103,8 @@ After the Jupyter lab opens can open the file "Pomodoro App testing.ipynb" and r
 ( somewhere, sometime in the distant future.. or by the devine grace of a gentle soul that contributes their pen  
 ૮꒰ ˶• ༝ •˶꒱ა ♡ )
 
-
+- Recheck MacOs version config values after this latest update
+  
 # Final Notes
 
 When packaging the app in Mac, i first tried with py2app, using a setup.py file but this did not work, even troubleshooting and trying a lot of fixes did not work in creating a launchable app icon, even though it worked by launching from the terminal executable it creates. Don't know if it has to do with my MacOs version or was doing something else wrong. The build time was also much longer than with pyinstaller, but with pyinstaller i had to adjust the pathing to the resources and add the images and sounds folder manually to the app.
