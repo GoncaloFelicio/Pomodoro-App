@@ -5,7 +5,6 @@ venv/
 build/
 *.egg-info/
 .eggs/
-setup.py
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
