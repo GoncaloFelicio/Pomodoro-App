@@ -96,12 +96,12 @@ After the Jupyter lab opens can open the file "Pomodoro App testing.ipynb" and r
 ( somewhere, sometime in the distant future.. or by the devine grace of a gentle soul that contributes their pen  
 ૮꒰ ˶• ༝ •˶꒱ა ♡ )
 
-- Package the app to also work on windows,
-- Open app by clicking on the terminal executable inside /dist (opens much faster),
-- Auto adjust the background image to always match size of the window,
-- Load the custom fonts from path, and remove the step to install them in the How to use instructions,
-- Dinamically identify Windows or OS and adjust custom font sizes and colors for tkinter to match current Mac app,
 
 # Final Notes
 
-When packaging the app i first tried with py2app, thats why there's a remnant setup.py file but this did not work, even troubleshooting and trying a lot of fixes did not work in creating a launchable app icon, even though it worked by launching from the terminal executable. Don't know if it has to do with my MacOs version or was doing something else wrong. The build time was also much longer than with pyinstaller, but with pyinstaller i had to adjust the pathing to the resources and add the images and sounds folder manually to the app.
+When packaging the app in Mac, i first tried with py2app, using a setup.py file but this did not work, even troubleshooting and trying a lot of fixes did not work in creating a launchable app icon, even though it worked by launching from the terminal executable it creates. Don't know if it has to do with my MacOs version or was doing something else wrong. The build time was also much longer than with pyinstaller, but with pyinstaller i had to adjust the pathing to the resources and add the images and sounds folder manually to the app.
+
+When packaging for Windows it was quick and everything worked straight away using terminal command:
+>```sh
+>pyinstaller --onefile --windowed --icon=images/tomato_icon_win.ico pomodoro.py
+>```
