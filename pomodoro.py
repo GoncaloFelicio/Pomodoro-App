@@ -77,10 +77,10 @@ class PomodoroApp:
         entry_bg_color = '#171717'
 
         # Fonts used for text, input numbers, and timer
-        font_text = font.Font(family="Angel wish", size=font_text_size, weight='bold', slant="italic")
-        font_button = font.Font(family="Angel wish", size=font_butt_size, weight='bold', slant="italic")
+        font_text = font.Font(family="Angel wish", size=font_text_size, weight='bold')
+        font_button = font.Font(family="Angel wish", size=font_butt_size, weight='bold')
         font_number = font.Font(family="Cloister Black", size=font_number_size)
-        self.font_timer = font.Font(family="The Centurion", size=font_timer_size, weight="bold", slant="italic")
+        self.font_timer = font.Font(family="The Centurion", size=font_timer_size, weight="bold")
 
         # Defining args for positioning
         self.work_label_pack = ['w', 10, (15,2)] # args for position and padding of work time label
