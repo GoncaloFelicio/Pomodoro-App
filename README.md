@@ -16,6 +16,12 @@ install the custom fonts in your system:
 The app is already packaged for MacOs, this means after cloning (or unzip) the repo, can go to the folder "*/dist*" and double-click the pomodoro app icon 🍅.  
 The app works for my current system: macOS 11.6.4 (20G417), other systems could give an issue.
 
+#### With Windows
+
+- via App file:  
+The app is already packaged for Windows, this means after cloning (or unzip) the repo, can go to the folder "*/dist*" and double-click the pomodoro app icon 🍅.  
+The app works for my current system, other systems could give an issue.
+
 #### With Python (Mac or Windows)
 [Install python 3.9.2](https://www.python.org/downloads/release/python-392/)
 
