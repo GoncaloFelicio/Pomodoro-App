@@ -105,6 +105,7 @@ After the Jupyter lab opens, you can open the file "Pomodoro App testing.ipynb" 
 
 - Recheck MacOs version config values after this latest update
 - Make a ACOTAR version for beibe
+- add a readme to the distribution zip
   
 # Final Notes
 
