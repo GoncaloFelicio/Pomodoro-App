@@ -103,7 +103,6 @@ After the Jupyter lab opens, you can open the file "Pomodoro App testing.ipynb" 
 ( somewhere, sometime in the distant future.. or by the devine grace of a gentle soul that contributes their pen  
 ૮꒰ ˶• ༝ •˶꒱ა ♡ )
 
-- Recheck MacOs version config values after this latest update
 - Make a ACOTAR version for beibe
 - add a readme to the distribution zip
   
