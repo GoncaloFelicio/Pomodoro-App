@@ -6,6 +6,7 @@ import tkinter as tk
 from PIL import Image, ImageTk  
 from playsound import playsound
 from tkinter import font, messagebox
+from config import *
 
 
 class PomodoroApp:
@@ -35,47 +36,16 @@ class PomodoroApp:
         self.is_working = True # flag to distinguish working timer and break timer
         self.cycles = 2 # default number of cycles
         self.cycle_number = 0 # current cycle number
-    
+        self.timer_win_size = timer_win_size
+
         # Load the PNG background
         self.background_image = Image.open(self.rel_path_to("images/background.png"))  # load PNG file
         self.background_image = self.background_image.resize((400, 300), Image.LANCZOS)  # resize to fit the window
         self.background_photo = ImageTk.PhotoImage(self.background_image) # load to image
-
         # Create a label for the background
         self.background_label = tk.Label(self.root, image=self.background_photo)
         self.background_label.place(relwidth=1, relheight=1)  # fill the window with the background image
         
-        # System specific config for OS and Windows
-        system = platform.system()
-        if system == 'Windows':
-            font_text_size = 16
-            font_number_size = 12
-            font_timer_size = 30
-            butt_img_size = (270, 45)
-            font_butt_size = 14
-            butt_width = 6
-            butt_height = 1
-            butt_pady = 6
-            Lbutt_padx = (25,5)
-            Mbutt_padx = 15
-            Rbutt_padx = (5,25)
-            butt_bg_color='#af7f7f'
-            butt_bg_color_act = '#af9f9f'
-            self.timer_win_size = "284x255"
-        else:
-            font_text_size = 20
-            font_number_size = 16
-            font_timer_size = 34
-            butt_img_size = (270,33)
-            font_butt_size = 20
-            self.timer_win_size = "300x200"
-            butt_width = 3
-            butt_height = 1
-
-        text_color = 'white'
-        text_bg_color = '#313131'
-        entry_bg_color = '#171717'
-
         # Fonts used for text, input numbers, and timer
         font_text = font.Font(family="Angel wish", size=font_text_size, weight='bold')
         font_button = font.Font(family="Angel wish", size=font_butt_size, weight='bold')
@@ -87,7 +57,7 @@ class PomodoroApp:
         self.pack_args = ['w', 10, 2] # args for position and padding of remaining labels
         
         # Input for Work time
-        self.work_label = tk.Label(self.root, text=' Work Time ', font=font_text, bd=0 , fg=text_color, bg=text_bg_color) # text label
+        self.work_label = tk.Label(self.root, text=' Work Time ', font=font_text , fg=text_color, bg=text_bg_color) # text label
         self.work_label.pack(anchor=self.work_label_pack[0], padx=self.work_label_pack[1], pady=self.work_label_pack[2])
         self.work_entry = tk.Entry(self.root, font=font_number, width=3, justify='center', highlightthickness=1, highlightcolor='white',
                                    fg=text_color, bg=entry_bg_color, insertbackground=text_color) # input label
@@ -124,20 +94,20 @@ class PomodoroApp:
         self.button_label = tk.Label(self.root, image=self.buttons_bg, bd=0, padx=0, pady=0)
         self.button_label.pack(side="bottom", fill='x', padx=10, pady=10)
 
-        # Start, Stop and Reset buttons inside the Button frame
+        # Start, Stop and Reset buttons inside the Button label
         self.start_button = tk.Button(self.button_label, text='Start', font=font_button, command=self.start_timer, bd=1, fg=text_color, 
                                       activeforeground=text_color, bg=butt_bg_color, activebackground=butt_bg_color_act, width=butt_width, 
-                                      height=butt_height, padx=0, pady=0, highlightthickness=0)
+                                      height=butt_height, padx=0, pady=0, highlightthickness=0, highlightbackground=butt_bg_color)
         self.start_button.pack(side='left', padx=Lbutt_padx, pady=butt_pady)
         
         self.stop_button = tk.Button(self.button_label, text='Stop', font=font_button, command=self.stop_timer, bd=1, fg=text_color, 
                                       activeforeground=text_color, bg=butt_bg_color, activebackground=butt_bg_color_act, width=butt_width, 
-                                      height=butt_height, padx=0, pady=0, highlightthickness=0)
+                                      height=butt_height, padx=0, pady=0, highlightthickness=0,highlightbackground=butt_bg_color)
         self.stop_button.pack(side='left', padx=Mbutt_padx, pady=butt_pady)
         
         self.reset_button = tk.Button(self.button_label, text='Reset', font=font_button, command=self.reset_timer, bd=1, fg=text_color, 
                                       activeforeground=text_color, bg=butt_bg_color, activebackground=butt_bg_color_act, width=butt_width, 
-                                      height=butt_height, padx=0, pady=0, highlightthickness=0)
+                                      height=butt_height, padx=0, pady=0, highlightthickness=0, highlightbackground=butt_bg_color)
         self.reset_button.pack(side='right', padx=Rbutt_padx, pady=butt_pady)
         
         # Set starting window size (width x height)
