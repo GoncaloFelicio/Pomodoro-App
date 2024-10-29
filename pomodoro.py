@@ -17,7 +17,7 @@ class PomodoroApp:
         # Get the directory of the current file
         if getattr(sys, 'frozen', False):
             # PyInstaller bundle
-            self.base_path = os.path.join(os.path.dirname(sys.executable), '..')
+            self.base_path = os.path.dirname(sys.executable)
         else:
             if '__file__' in locals():
                 self.base_path = os.path.dirname(os.path.abspath(__file__))
