@@ -30,8 +30,8 @@ class PomodoroApp:
         self.root = root
         self.root.title("My 🍅 Timer") # main title
         self.is_running = False # flag for running the timer, default is False
-        self.work_mins = 33 # default work duration in minutes
-        self.break_mins = 7 # default break duration in minutes
+        self.work_mins = 47 # default work duration in minutes
+        self.break_mins = 13 # default break duration in minutes
         self.time_left = self.work_mins * 60 # remaining time converted to seconds
         self.is_working = True # flag to distinguish working timer and break timer
         self.cycles = 2 # default number of cycles
