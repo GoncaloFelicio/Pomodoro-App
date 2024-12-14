@@ -35,11 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['images/tomato_icon_os.icns'],
-)
-app = BUNDLE(
-    exe,
-    name='pomodoro.app',
-    icon='images/tomato_icon_os.icns',
-    bundle_identifier=None,
+    icon=['images\\tomato_icon_win.ico'],
 )

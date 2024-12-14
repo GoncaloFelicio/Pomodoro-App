@@ -110,7 +110,8 @@ After the Jupyter lab opens, you can open the file "Pomodoro App testing.ipynb" 
 
 When packaging the app in Mac, i first tried with py2app, using a setup.py file but this did not work, even troubleshooting and trying a lot of fixes did not work in creating a launchable app icon, even though it worked by launching from the terminal executable it creates. Don't know if it has to do with my MacOs version or was doing something else wrong. The build time was also much longer than with pyinstaller, but with pyinstaller i had to adjust the pathing to the resources and add the images and sounds folder manually to the app.
 
-When packaging for Windows it was quick and everything worked straight away using terminal command:
+When packaging for Windows it was quick and everything worked straight away using terminal command, executable is found in dist folder:
 >```sh
+>venv\Scripts\activate
 >pyinstaller --onefile --windowed --icon=images/tomato_icon_win.ico pomodoro.py
 >```
