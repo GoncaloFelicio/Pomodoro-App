@@ -1,6 +1,6 @@
 # 🍅 Pomodoro App (Python) 🍅
 
-A simple pomodoro app using Python 3.9.2 and pip 24.2, it's also already packaged for MacOS  
+A simple pomodoro app using Python 3.9.2 and pip 24.2, it's also already packaged for MacOS and Windows 11
 
 What's a pomodoro? --> https://en.wikipedia.org/wiki/Pomodoro_Technique
 
@@ -13,14 +13,14 @@ install the custom fonts in your system:
 #### With MacOs 
 
 - via App file:  
-The app is already packaged for MacOs, this means after cloning (or unzip) the repo, can go to the folder "*/dist*" and double-click the pomodoro app icon 🍅.  
+The app is already packaged for MacOs, this means after cloning the repo, you canunzip the folder "*/CastleDoroMac*" and double-click the pomodoro app icon inside 🍅.  
 The app works for my current system: macOS 11.6.4 (20G417), other systems could give an issue.
 
 #### With Windows
 
 - via App file:  
-The app is already packaged for Windows, this means after cloning (or unzip) the repo, can go to the folder "*/dist*" and double-click the pomodoro app icon 🍅.  
-The app works for my current system, other systems could give an issue.
+The app is already packaged for Windows, this means after cloning (or unzip) the repo, you can go to the folder "*/CastleDoroWin" and double-click the pomodoro app icon inside 🍅.  
+The app works for my current system Windows 11, other systems could give an issue.
 
 #### With Python (Mac or Windows)
 [Install python 3.9.2](https://www.python.org/downloads/release/python-392/)
@@ -81,7 +81,7 @@ Open the terminal app and copy paste the code below.
 - via jupyter notebook:  
 There is also a jupyter notebook in the repo used for development and testing. The steps to follow are the same as above but, at the final step, instead of launching the pomodoro.py file, launch jupyter instead:  
 
-#### For Mac
+#### For Mac and Windows
 >add the virtual environment to Jupyter kernel
 >```sh
 >python -m ipykernel install --user --name=venv --display-name "Pomodoro Venv" 
@@ -103,14 +103,14 @@ After the Jupyter lab opens, you can open the file "Pomodoro App testing.ipynb" 
 ( somewhere, sometime in the distant future.. or by the devine grace of a gentle soul that contributes their pen  
 ૮꒰ ˶• ༝ •˶꒱ა ♡ )
 
-- Make a ACOTAR version for beibe
-- add a readme to the distribution zip
+- Make a ACOTAR version
   
 # Final Notes
 
-When packaging the app in Mac, i first tried with py2app, using a setup.py file but this did not work, even troubleshooting and trying a lot of fixes did not work in creating a launchable app icon, even though it worked by launching from the terminal executable it creates. Don't know if it has to do with my MacOs version or was doing something else wrong. The build time was also much longer than with pyinstaller, but with pyinstaller i had to adjust the pathing to the resources and add the images and sounds folder manually to the app.
+When packaging the app in Mac, i first tried with py2app, using a setup.py file but this did not work, even troubleshooting and trying a lot of fixes did not work in creating a launchable app icon, even though it worked by launching from the terminal executable it creates. Don't know if it has to do with my MacOs version or was doing something else wrong. The build time was also much longer than with pyinstaller, but with pyinstaller i had to adjust the pathing to the resources in the python code and add the images and sounds folder manually to the new app folder.#
+Overall pretty disorganized and hard to use.
 
-When packaging for Windows it was quick and everything worked straight away using terminal command, executable is found in dist folder:
+When packaging for Windows it was quick and everything worked straight away using the following terminal commands (commands for mac packaging are simmilar):
 >```sh
 >venv\Scripts\activate
 >pyinstaller --onefile --windowed --icon=images/tomato_icon_win.ico pomodoro.py
