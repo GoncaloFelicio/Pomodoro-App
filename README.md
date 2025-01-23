@@ -100,10 +100,11 @@ After the Jupyter lab opens, you can open the file "Pomodoro App testing.ipynb" 
 ---
 
 # To Do's 
-( somewhere, sometime in the distant future.. or by the devine grace of a gentle soul that contributes their pen  
+( somewhere, sometime in the far future.. or by the grace of a gentle soul that contributes their pen  
 ૮꒰ ˶• ༝ •˶꒱ა ♡ )
 
 - Make a ACOTAR version
+- Fix Start and Stop buttons to be more robust (Start does not start multiple threads and Stop lets the counter continue using Start after)
   
 # Final Notes
 
