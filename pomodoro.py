@@ -1,6 +1,6 @@
 import os
 import sys
-import platform
+import time
 import threading
 import tkinter as tk
 from PIL import Image, ImageTk  
@@ -111,8 +111,8 @@ class PomodoroApp:
         self.reset_button.pack(side='right', padx=Rbutt_padx, pady=butt_pady)
         
         # Set starting window size (width x height)
-        self.root.geometry("")  # Auto adjusts window size according the the packed labels
-        self.root.resizable(False,False)
+        self.root.geometry('+0+0')  # Auto adjusts window size according the the packed labels and places at top left corner
+        self.root.resizable(False,False) # Stop user from resizing window
 
     def start_timer(self):
         # Get user input for the timers
@@ -149,6 +149,7 @@ class PomodoroApp:
                 self.timer_label['text'] = self.format_time(self.time_left) # update timer label
                 self.root.after(1000, self.run_timer) # call run_timer again after 1 second
             else:
+                time.sleep(1)
                 self.switch_timer() # if time left is 0 switch the other timer
     
     def switch_timer(self):
@@ -161,16 +162,16 @@ class PomodoroApp:
             self.time_left = self.work_mins * 60 # set timer for work
             self.cycle_number += 1 # increment cycle number
             
-        self.is_working = not self.is_working # change working flag to opposito, to alternate timers
+        self.is_working = not self.is_working # change working flag to opposite, to alternate timers
         
         if self.cycle_number < self.cycles: # if number of cycles less than desired number continue running the timer
             if self.is_working:
-                playsound(self.rel_path_to('sounds/SoulSteal.wav')) # play sound for work timer
+                self.play_sound_threaded(self.rel_path_to('sounds/SoulSteal.wav')) # play sound for work timer
             else:
-                playsound(self.rel_path_to('sounds/DarkMeta.wav')) # play sound for break timer
+                self.play_sound_threaded(self.rel_path_to('sounds/DarkMeta.wav')) # play sound for break timer
             self.run_timer()
         else:
-            self.root.geometry("300x200")
+            self.root.geometry('+0+0')
             self.play_sound_threaded(self.rel_path_to('sounds/Impressive.wav'))
             self.root.title(f"The end 🍅") # change title to end title
             self.timer_bg_og_resize = self.timer_bg_og.resize((260, 100), Image.LANCZOS) 
@@ -194,11 +195,14 @@ class PomodoroApp:
         self.cycle_entry.pack(anchor=self.pack_args[0], padx=self.pack_args[1], pady=self.pack_args[2])
         # Hide timer
         self.timer_label.place_forget() 
-        self.root.geometry("") 
+        self.root.geometry('+0+0') 
         self.is_running = False
         self.time_left = self.work_mins * 60 # reset to default
         self.cycle_number = 0 # reset to default
         self.timer_label['text'] = self.format_time(self.time_left) # reset to default
+        self.timer_bg_og_resize = self.timer_bg_og.resize((170, 95), Image.LANCZOS) 
+        self.timer_bg = ImageTk.PhotoImage(self.timer_bg_og_resize)
+        self.timer_label.config(image=self.timer_bg, font=self.font_timer)
        
     def format_time(self, time_in_seconds): # formats time in minutes to int number of seconds in a string
         minutes, seconds = divmod(time_in_seconds, 60)

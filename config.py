@@ -17,7 +17,7 @@ if system == 'Windows':
     Rbutt_padx = (5,25)
     butt_bg_color='#af7f7f'
     butt_bg_color_act = '#af9f9f'
-    timer_win_size = "284x255"
+    timer_win_size = "284x255+0+0" # "284x255+0+0"
 elif system == 'Darwin':
     font_text_size = 20
     font_number_size = 16
@@ -32,7 +32,7 @@ elif system == 'Darwin':
     Rbutt_padx = (5,25)
     butt_bg_color='#660000'
     butt_bg_color_act = '#660000'
-    timer_win_size = "281x237"
+    timer_win_size = "281x237+0+0" # "281x237+0+0"
             
 text_color = 'white'
 text_bg_color = '#313131'
