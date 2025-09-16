@@ -13,3 +13,8 @@ dist/
 # macOS system files
 .DS_Store
 __pycache__/
+
+# unzipped distribution files
+CastleDoroMac/
+CastleDoroWin/
+
