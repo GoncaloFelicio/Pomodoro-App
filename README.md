@@ -13,7 +13,7 @@ install the custom fonts in your system:
 #### With MacOs 
 
 - via App file:  
-The app is already packaged for MacOs, this means after cloning the repo, you canunzip the folder "*/CastleDoroMac*" and double-click the pomodoro app icon inside 🍅.  
+The app is already packaged for MacOs, this means after cloning the repo, you can unzip the folder "*/CastleDoroMac*" and double-click the pomodoro app icon inside 🍅.  
 The app works for my current system: macOS 11.6.4 (20G417), other systems could give an issue.
 
 #### With Windows
