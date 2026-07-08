@@ -1,6 +1,5 @@
 import os
 import sys
-import time
 import threading
 import tkinter as tk
 from PIL import Image, ImageTk  
@@ -20,7 +19,7 @@ class PomodoroApp:
             # PyInstaller bundle
             self.base_path = os.path.dirname(sys.executable)
         else:
-            if '__file__' in locals():
+            if '__file__' in globals():
                 self.base_path = os.path.dirname(os.path.abspath(__file__))
             else:
                 # Fallback: Use current working directory if __file__ is not defined
@@ -37,6 +36,7 @@ class PomodoroApp:
         self.cycles = 2 # default number of cycles
         self.cycle_number = 0 # current cycle number
         self.timer_win_size = timer_win_size
+        self.timer_job = None
 
         # Load the PNG background
         self.background_image = Image.open(self.rel_path_to("images/background.png"))  # load PNG file
@@ -115,11 +115,23 @@ class PomodoroApp:
         self.root.resizable(False,False) # Stop user from resizing window
 
     def start_timer(self):
+        if self.is_running:
+            return
+
         # Get user input for the timers
         try:
-            self.work_mins = float(self.work_entry.get())
-            self.break_mins = float(self.break_entry.get())
-            self.cycles = int(self.cycle_entry.get())
+            work_mins = float(self.work_entry.get())
+            break_mins = float(self.break_entry.get())
+            cycles = int(self.cycle_entry.get())
+            if work_mins <= 0 or break_mins <= 0 or cycles <= 0:
+                messagebox.showerror("Invalid input", "Timers and cycles must be greater than zero.")
+                return
+
+            self.work_mins = work_mins
+            self.break_mins = break_mins
+            self.cycles = cycles
+            self.cycle_number = 0
+            self.is_working = True
             self.time_left = self.work_mins * 60
             # Hide input fields
             self.work_label.pack_forget()
@@ -138,21 +150,20 @@ class PomodoroApp:
             self.run_timer()
         except ValueError:
             messagebox.showerror("Invalid input", "Enter int or decimal for the timers and int for cycles, ex.: 1 - 0.5 - 1") 
-        if self.work_mins <= 0 or self.break_mins <= 0 or self.cycles <= 0:
-            messagebox.showerror("Invalid input", "Timers and cycles must be greater than zero.")
         return
     
     def run_timer(self):
-        if  self.is_running:
+        self.timer_job = None
+        if self.is_running:
             if self.time_left > 0:
                 self.time_left -= 1 # decrease time left value
                 self.timer_label['text'] = self.format_time(self.time_left) # update timer label
-                self.root.after(1000, self.run_timer) # call run_timer again after 1 second
+                self.timer_job = self.root.after(1000, self.run_timer) # call run_timer again after 1 second
             else:
-                time.sleep(1)
-                self.switch_timer() # if time left is 0 switch the other timer
+                self.timer_job = self.root.after(1000, self.switch_timer) # if time left is 0 switch the other timer
     
     def switch_timer(self):
+        self.timer_job = None
         if self.is_working: # if previous timer was work change to break
             self.root.title(f"Break Timer 🍅")
             self.time_left = self.break_mins * 60 # set timer for the break
@@ -182,6 +193,12 @@ class PomodoroApp:
     def stop_timer(self):
         self.play_sound_threaded(self.rel_path_to('sounds/What.wav')) # sound for stop button
         self.is_running = False # restarts the timer as well by setting flag to false
+        if self.timer_job is not None:
+            try:
+                self.root.after_cancel(self.timer_job)
+            except tk.TclError:
+                pass
+            self.timer_job = None
     
     def reset_timer(self):
         self.play_sound_threaded(self.rel_path_to('sounds/AsYouWish.wav'))
@@ -197,6 +214,12 @@ class PomodoroApp:
         self.timer_label.place_forget() 
         self.root.geometry('+0+0') 
         self.is_running = False
+        if self.timer_job is not None:
+            try:
+                self.root.after_cancel(self.timer_job)
+            except tk.TclError:
+                pass
+            self.timer_job = None
         self.time_left = self.work_mins * 60 # reset to default
         self.cycle_number = 0 # reset to default
         self.timer_label['text'] = self.format_time(self.time_left) # reset to default
@@ -209,7 +232,7 @@ class PomodoroApp:
         return f"{int(minutes):02}:{int(seconds):02}"
 
     def play_sound_threaded(self, sound_file): # plays sound in a thread to keep GUI active
-        threading.Thread(target=playsound, args=(sound_file,)).start()
+        threading.Thread(target=playsound, args=(sound_file,), daemon=True).start()
     
     def rel_path_to(self, file):
             return os.path.join(self.base_path, file)

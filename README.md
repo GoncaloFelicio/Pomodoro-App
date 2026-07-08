@@ -1,118 +1,99 @@
-# 🍅 Pomodoro App (Python) 🍅
+# Pomodoro App
 
-A simple pomodoro app using Python 3.9.2 and pip 24.2, it's also already packaged for MacOS and Windows 11
+Castlevania-themed Pomodoro timer written in Python and packaged for macOS and Windows.
 
-What's a pomodoro? --> https://en.wikipedia.org/wiki/Pomodoro_Technique
+What it includes:
+- configurable work, break, and cycle timers
+- custom fonts, images, and sound effects
+- standalone packaged builds for macOS and Windows
+- a notebook for development and manual testing
 
+## Use
 
-## How to Use
-clone the repo or download the zip from the Github page (hint: green "Code" button)  
-install the custom fonts in your system:  
->Go to the folder "*/fonts*" in the repository, double click each font and install them
+You can run the app in three ways:
 
-#### With MacOs 
+### 1. Use a packaged build
 
-- via App file:  
-The app is already packaged for MacOs, this means after cloning the repo, you can unzip the folder "*/CastleDoroMac*" and double-click the pomodoro app icon inside 🍅.  
-The app works for my current system: macOS 11.6.4 (20G417), other systems could give an issue.
+macOS:
+- unzip `CastleDoroMac.zip`
+- open the `CastleDoroMac` folder
+- double-click the app bundle inside
 
-#### With Windows
+Windows:
+- unzip `CastleDoroWin.zip`
+- open the extracted folder
+- double-click the Windows executable
 
-- via App file:  
-The app is already packaged for Windows, this means after cloning (or unzip) the repo, you can go to the folder "*/CastleDoroWin" and double-click the pomodoro app icon inside 🍅.  
-The app works for my current system Windows 11, other systems could give an issue.
+### 2. Run from Python
 
-#### With Python (Mac or Windows)
-[Install python 3.9.2](https://www.python.org/downloads/release/python-392/)
+Install the matching requirements for your platform, then run `pomodoro.py`.
 
-- via python file:  
-Can also start the app directly from the python file by running the code below, this requires using the terminal.  
-Open the terminal app and copy paste the code below.
+macOS:
+```sh
+cd /path/to/Pomodoro-App
+python3 -m venv venv
+source venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirementsMac.txt
+python pomodoro.py
+```
 
-#### For Mac
->change the working directory to the path where you unziped the app files
->```sh
->cd your/path/to/repo/Pomodoro-App-main
->```
->create a virtual environment for the app's libraries
->```sh
->python3 -m venv venv 
->```
->activate the virtual environment just created
->```sh
->source venv/bin/activate
->```
->upgrade pip and install the required libraries (also installs jupyter in case you want to play around with it)
->```sh
->python -m pip install --upgrade pip
->pip install -r requirementsMac.txt
->```
->launch the app from the python file
->```sh
->python pomodoro.py
->```
->Should work with the previous code, if there are permissions issue can try adding this to give executable permissions before launching the python file:
->```sh
->chmod +x pomodoro.py
->```
+Windows:
+```sh
+cd C:\path\to\Pomodoro-App
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirementsWin.txt
+python pomodoro.py
+```
 
-#### For Windows
->change the working directory to the path where you unziped the app files
->```sh
->cd your/path/to/repo/Pomodoro-App-main
->```
->create a virtual environment for the app's libraries
->```sh
->python -m venv venv 
->```
->activate the virtual environment just created
->```sh
->venv\Scripts\activate
->```
->install the required libraries
->```sh
->pip install -r requirementsWin.txt
->```
->launch the app from the python file
->```sh
->python pomodoro.py
->```
+### 3. Open the testing notebook
 
-- via jupyter notebook:  
-There is also a jupyter notebook in the repo used for development and testing. The steps to follow are the same as above but, at the final step, instead of launching the pomodoro.py file, launch jupyter instead:  
+The notebook is useful for manual checks and local development.
 
-#### For Mac and Windows
->add the virtual environment to Jupyter kernel
->```sh
->python -m ipykernel install --user --name=venv --display-name "Pomodoro Venv" 
->```
->open jupyter lab
->```sh
->jupyter lab
->```  
-After the Jupyter lab opens, you can open the file "Pomodoro App testing.ipynb" and run the first cells with code by clicking on the cell and then Shift+Enter.
+```sh
+python -m ipykernel install --user --name=venv --display-name "Pomodoro Venv"
+jupyter lab
+```
 
-### If everything works:
-- Enjoy!  (˵ •̀ ᴗ - ˵ ) ✧
-### else:
-- Consider contacting me: goncalo.ag.felicio@gmail.com
+Open `PomodoroAppTesting.ipynb` and run the notebook cells.
 
----
+## Requirements
 
-# To Do's 
-( somewhere, sometime in the far future.. or by the grace of a gentle soul that contributes their pen  
-૮꒰ ˶• ༝ •˶꒱ა ♡ )
+- Python 3.9.x
+- platform fonts installed from the `fonts/` folder
+- platform-specific packages from `requirementsMac.txt` or `requirementsWin.txt`
 
-- Make a ACOTAR version
-- Fix Start and Stop buttons to be more robust (Start does not start multiple threads and Stop lets the counter continue using Start after)
-  
-# Final Notes
+## Packaging notes
 
-When packaging the app in Mac, i first tried with py2app, using a setup.py file but this did not work, even troubleshooting and trying a lot of fixes did not work in creating a launchable app icon, even though it worked by launching from the terminal executable it creates. Don't know if it has to do with my MacOs version or was doing something else wrong. The build time was also much longer than with pyinstaller, but with pyinstaller i had to adjust the pathing to the resources in the python code and add the images and sounds folder manually to the new app folder.#
-Overall pretty disorganized and hard to use.
+- macOS packaging works with PyInstaller, but resource paths must be bundled carefully.
+- keep the `images/` and `sounds/` folders alongside the packaged app when building locally.
+- tkinter needs the custom fonts installed system-wide for the UI to render correctly.
 
-When packaging for Windows it was quick and everything worked straight away using the following terminal commands (commands for mac packaging are simmilar):
->```sh
->venv\Scripts\activate
->pyinstaller --onefile --windowed --icon=images/tomato_icon_win.ico pomodoro.py
->```
+### Packaging command
+
+macOS example:
+```sh
+pyinstaller --onefile --windowed --name PomodoroApp pomodoro.py
+```
+
+Windows example:
+```sh
+pyinstaller --onefile --windowed --name PomodoroApp --icon=images/tomato_icon_win.ico pomodoro.py
+```
+
+If you need bundled assets, keep your packaging script or spec file in sync with the `images/`, `sounds/`, and `fonts/` folders.
+
+For your goal, Tkinter is still the simplest if you want to stay fully in Python and keep the app easy to update.
+
+## Project layout
+
+- `pomodoro.py`: application entry point
+- `config.py`: platform-specific UI settings
+- `PomodoroAppTesting.ipynb`: development/testing notebook
+- `images/`, `sounds/`, `fonts/`: app assets
+- `requirementsMac.txt`, `requirementsWin.txt`: platform dependency lists
+
+## Contact
+
+If you run into issues, contact: goncalo.ag.felicio@gmail.com
